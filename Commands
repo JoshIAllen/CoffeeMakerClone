@@ -10,5 +10,7 @@ java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore Coffe
 How to commit to Github (for josh):
 
 git add *
-git commit -m "Test Update"
+
+
+git commit -m "Test Update Final"
 git push origin master
