@@ -82,6 +82,19 @@ public class CoffeeTest{
   }  
   
   @Test
+  public void checkSouthFalse(){
+    Room testRoom = new Room("test");
+    assertFalse("failure, should be false", testRoom.checkSouth());
+  }
+  
+  @Test
+  public void checkSourthTrue(){
+    Room testRoom = new Room("test");
+    testRoom.setSouuth(true);
+    assertTrue("failure, should be true", testRoom.checkSouth()
+  }
+  
+  @Test
   public void testItemLook(){
     Boolean[] fakeInventory = {false, false, false};
     Room testRoom = new Room("test");
