@@ -68,6 +68,13 @@ public class CoffeeTest{
     assertTrue("failure, should be true" ,testRoom.checkItem());
   }
   
+  @Test
+  public void testGetItem(){
+    Room testRoom = new Room("test");
+    testRoom.getItem("Things123");
+    assertEquals("failure, should be true", testRoom.getItem());
+  }
+  
   @Test  
   public void checkNorthFalse() {
     Room testRoom = new Room("test");
@@ -91,7 +98,7 @@ public class CoffeeTest{
   public void checkSourthTrue(){
     Room testRoom = new Room("test");
     testRoom.setSouuth(true);
-    assertTrue("failure, should be true", testRoom.checkSouth()
+    assertTrue("failure, should be true", testRoom.checkSouth());
   }
   
   @Test
