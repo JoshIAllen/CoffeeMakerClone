@@ -22,7 +22,7 @@ public class CoffeeTest{
   
   @Test
   public void testSetFirstItem() {
-    Room testRoom = new Room("test");
+    Room testRoom = new Room("ASDFG");
     testRoom.setFirst("abc123");
     assertEquals("failure, strings are not equal" , "abc123", testRoom.getFirst());
   }
@@ -95,7 +95,7 @@ public class CoffeeTest{
   }
   
   @Test
-  public void checkSourthTrue(){
+  public void checkSouthTrue(){
     Room testRoom = new Room("test");
     testRoom.setSouuth(true);
     assertTrue("failure, should be true", testRoom.checkSouth());
