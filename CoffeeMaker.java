@@ -79,23 +79,7 @@ public class CoffeeMaker {
 
       }
    }
-   // Are you deleting all of the "Public" so theres less to test?
-   // No, I'm just trying to make this a little easier to test. sorrry it's been chicken scratch lately. 
-   //I have the Room class all tested, but I need to get this sorted out and then start wrting some tests. I don't know what the 2 kinds of test we need are though.
-   //I believe theyre doubles and stubs, what still needs to be tested?
-   // The entire Coffee maker file
-   // I have only done the easy one
-   // so we still need to test things for interpretInput, all of the rooms, printing help and rooms info, etc?
-   // Not the rooms, I have those all tested. But every method will need to be. And I need to get this interperetInput method working
-   // ok, what can I do?
-   // Can you read up on the stubs and doubles and try to figure out where we can use those?
-   // sure can. If you need anything else just text me.
-   // Yeah I just have to get this method working
-   
-   // 5:29 Got it working.
-   // Another thing that could be helpful if you could accomplish is changing the names of the methods in CoffeeTest. 
-   // I think they should all starte with "testThenWhateverYouWant"
-   // I named them wrong earlier when I did them
+
    
  public static void interpretInput(String input, Room[] house){
         if (input.equals("n") || input.equals("N")){

@@ -1,13 +1,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
+import org.junit.*;
+import java.io.*;
 //import org.junit;
 
 
-public class CoffeeTest{
+public class CoffeeTest{    
   
 //  private ByteArrayOutputStream out = new ByteArrayOutputStream();
   
@@ -70,13 +69,6 @@ public class CoffeeTest{
     assertTrue("failure, should be true" ,testRoom.checkItem());
   }
   
-  @Test
-  public void testGetItem(){
-    Room testRoom = new Room("test");
-    testRoom.getItem("Things123");
-    assertEquals("failure, should be true", testRoom.getItem());
-  }
-  
   @Test  
   public void checkNorthFalse() {
     Room testRoom = new Room("test");
@@ -99,19 +91,19 @@ public class CoffeeTest{
   @Test
   public void checkSouthTrue(){
     Room testRoom = new Room("test");
-    testRoom.setSouuth(true);
+    testRoom.setSouth(true);
     assertTrue("failure, should be true", testRoom.checkSouth());
   }
-  
+//----------------------------------------------------------------------- End of Room Tests -----------------------------------------------------------  
   @Test
-  public void testItemLook(){
+  public void testItemLookFFF(){
     Boolean[] fakeInventory = {false, false, false};
     Room testRoom = new Room("test");
     testRoom.setItem("");
   }
   
   @Test
-  public void testItemLook2(){
+  public void testItemLookTFF(){
     Boolean[] checkInvenory = {true, false, false};
     Room testRoom = new Room("test");
     testRoom.setItem("");
@@ -119,7 +111,7 @@ public class CoffeeTest{
   }
   
   @Test
-  public void testItemLook3(){
+  public void testItemLookTTF(){
     Boolean[] checkInvenory = {true, true, false};
     Room testRoom = new Room("test");
     testRoom.setItem("");
@@ -127,7 +119,7 @@ public class CoffeeTest{
   }
     
   @Test
-  public void testItemLook4(){
+  public void testItemLookTTT(){
     Boolean[] checkInvenory = {true, true, true};
     Room testRoom = new Room("test");
     testRoom.setItem(""); 
@@ -135,14 +127,14 @@ public class CoffeeTest{
   }
   
   @Test
-  public void testItemLook5(){
+  public void testItemLookFTF(){
     Boolean[] checkInvenory = {false, true, false};
     Room testRoom = new Room("test");
     testRoom.setItem(""); 
     
   }
   @Test
-  public void testItemLook6(){
+  public void testItemLookFFT(){
     Boolean[] checkInvenory = {false, false, true};
     Room testRoom = new Room("test");
     testRoom.setItem(""); 
@@ -150,7 +142,7 @@ public class CoffeeTest{
   }
   
   @Test
-  public void testItemLook7(){
+  public void testItemLookFTT(){
     Boolean[] checkInvenory = {false, true, true};
     Room testRoom = new Room("test");
     testRoom.setItem(""); 
@@ -158,7 +150,7 @@ public class CoffeeTest{
   }
   
   @Test
-  public void testItemLook8(){
+  public void testItemLookTFT(){
     Boolean[] checkInvenory = {true, false, true};
     Room testRoom = new Room("test");
     testRoom.setItem(""); 
@@ -171,27 +163,8 @@ public class CoffeeTest{
   //  TESTSTRING = COFFEEMAKER(TRUE);
   //  ASSERTEQUALS("INVALID INPUT", TESTSTRING());
   //}
-  // I dont think im doing this right...
-  // What happened to all of my test item looks?
-  // What do you mean?
-  // I had like 3 or 4 more test item look tests written
-  // I dont know... I wouldn't have deleted them.
-  // I don't know what's going on in that testInterperet string method
-  // Me neither, I don't really understand how to write test codes. I was just trying to follow a similar format that you were doing for other tests.
-  // Idk, don't worry about it, I'll work on it
-  // Is there a way for us to actually see if it errors? When I wrote those two tests, compiled, and then ran I didn't get any errors.
-  // I'm getting a lot of errors
-  // You have to right click, run the code
-  // Then use the compile command and the run command
-  // Is this for sure due tomorrow?
-  // I don't think he gave a due date yet.
-  // I know the orginal pdf with the instructions said that the due date was "TBD"
-  // I have a hunch it's due tomorrow but I can't work on this anymore today. I spent 2 hours writing those tests and they are gone now.
-  // Shit, I honestly have no idea what happened to them, when I looked at this earlier this is what it had.
-  // I'll try to accomplish some more tomorrow.
-  // I'll keep working on this tonight, I'm sorry about those tests, I hope I didn't somehow delete them...
-  
-  
+
+
   
 //  @Test
 //  public void testPrintRoom(){
