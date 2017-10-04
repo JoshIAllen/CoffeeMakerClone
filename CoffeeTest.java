@@ -1,26 +1,26 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.*;
 import java.io.*;
 //import org.junit;
 
 
-public class CoffeeTest{    
+public class CoffeeTest{       
   
-//  private ByteArrayOutputStream out = new ByteArrayOutputStream();
+  private ByteArrayOutputStream out = new ByteArrayOutputStream();
+  @Before
+  public void setUp(){
+    System.setOut(new PrintStream(out));
+  }
   
-//  @Before
-//  public void setUp(){
-//    System.setOut(new PrintStream(out));
-//  }
+  @After
+  public void tearDown(){
+    System.setOut(null);
+  }
   
-//  @After
-//  public void tearDown(){
-//    System.setOut(null);
-//  }
-  
-  
+// --------------------------------------------------------------------- Room Tests ---------------------------------------------------------------
   @Test
   public void testSetFirstItem() {
     Room testRoom = new Room("ASDFG");
@@ -95,67 +95,53 @@ public class CoffeeTest{
     assertTrue("failure, should be true", testRoom.checkSouth());
   }
 //----------------------------------------------------------------------- End of Room Tests -----------------------------------------------------------  
+//------------------------------------------------------------------------Item Look Method Tests ----------------------------------------------------- 
   @Test
-  public void testItemLookFFF(){
+  public void testItemLookNull(){
     Boolean[] fakeInventory = {false, false, false};
+    Boolean[] inventoryCheck = {false, false, false};
     Room testRoom = new Room("test");
-    testRoom.setItem("");
+    testRoom.setItem(null);
+    assertArrayEquals("FAILURE: Arrays were not equal", CoffeeMaker.itemLook(testRoom, fakeInventory), inventoryCheck);
   }
   
   @Test
-  public void testItemLookTFF(){
-    Boolean[] checkInvenory = {true, false, false};
+  public void testItemLookCoffee(){
+    Boolean[] fakeInventory = {false, false, false};
+    Boolean[] inventoryCheck = {true, false, false};
     Room testRoom = new Room("test");
-    testRoom.setItem("");
-    
-  }
-  
-  @Test
-  public void testItemLookTTF(){
-    Boolean[] checkInvenory = {true, true, false};
-    Room testRoom = new Room("test");
-    testRoom.setItem("");
-    
-  }
-    
-  @Test
-  public void testItemLookTTT(){
-    Boolean[] checkInvenory = {true, true, true};
-    Room testRoom = new Room("test");
-    testRoom.setItem(""); 
+    testRoom.setItem("Coffee");
+    assertArrayEquals("FAILURE: Arrays were not equal", CoffeeMaker.itemLook(testRoom, fakeInventory), inventoryCheck);
     
   }
   
   @Test
-  public void testItemLookFTF(){
-    Boolean[] checkInvenory = {false, true, false};
+  public void testItemLookCream(){
+    Boolean [] fakeInventory = {false, false, false};
+    Boolean[] inventoryCheck = {false, true, false};
     Room testRoom = new Room("test");
-    testRoom.setItem(""); 
+    testRoom.setItem("Cream");
+    assertArrayEquals("FAILURE: Arrays were not equal", CoffeeMaker.itemLook(testRoom, fakeInventory), inventoryCheck);
     
   }
-  @Test
-  public void testItemLookFFT(){
-    Boolean[] checkInvenory = {false, false, true};
-    Room testRoom = new Room("test");
-    testRoom.setItem(""); 
     
+  @Test
+  public void testItemLookSugar(){
+    Boolean [] fakeInventory = {false, false, false};
+    Boolean[] inventoryCheck = {false, false, true};
+    Room testRoom = new Room("test");
+    testRoom.setItem("Sugar"); 
+    assertArrayEquals("FAILURE: Arrays were not equal", CoffeeMaker.itemLook(testRoom, fakeInventory), inventoryCheck);
+
   }
   
-  @Test
-  public void testItemLookFTT(){
-    Boolean[] checkInvenory = {false, true, true};
-    Room testRoom = new Room("test");
-    testRoom.setItem(""); 
-    
-  }
+//  @Test
+//  public void testItemLook(){
+//    Boolean[] checkInvenory = {false, true, false};
+//    Room testRoom = new Room("test");
+//    testRoom.setItem(""); 
+//  }
   
-  @Test
-  public void testItemLookTFT(){
-    Boolean[] checkInvenory = {true, false, true};
-    Room testRoom = new Room("test");
-    testRoom.setItem(""); 
-    
-  }
   
  // @TEST
   //PUBLIC VOID TESTINTERPRETSTRING(){

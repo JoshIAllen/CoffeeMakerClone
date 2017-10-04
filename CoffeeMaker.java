@@ -203,7 +203,7 @@ public class CoffeeMaker {
  }
  
  
- public static Boolean[] itemLook(Room currRoom, Boolean[] currInv){ // TESTED
+ public static Boolean[] itemLook(Room currRoom, Boolean[] currInv){ 
      if (currRoom.getItem() == null){
            System.out.println("You don't see anything out of the ordinary.");
            return currInv;

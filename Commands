@@ -14,3 +14,13 @@ git add *
 
 git commit -m "Test Update Final"
 git push origin master
+
+
+
+Example Print Check:
+
+assertEquals("random error message", "You drank the coffee, you win!".trim(), out.toString().trim())
+
+example interpret: 
+
+CoffeeMaker.interpretInput("n", testRoom);
