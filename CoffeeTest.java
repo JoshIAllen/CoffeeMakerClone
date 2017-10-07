@@ -146,6 +146,38 @@ public class CoffeeTest{
   
   //-------------------------------------------------------------------- End of Item Look---------------------------------------------------------------------------
   //-------------------------------------------------------------------- Drink Check ------------------------------------------------------------------------------
+  @Test
+  public void testDrinkCheckWin(){
+    Boolean[] fakeInventory = {true, true, true};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You drink the beverage and are ready to study!\nYou win!!\n".trim() , out.toString().trim());
+  }
   
+  @Test
+  public void testDrinkCheckFTF(){
+    Boolean[] fakeInventory = {false, true, false};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You drink the cream, but without caffeine, you cannot study. \n You lose!\n".trim() , out.toString().trim());
+  }
  
+  @Test
+  public void testDrinkCheckTFF(){
+    Boolean[] fakeInventory = {true, false, false};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "Without cream, you get an ulcer and cannot study. \n You lose!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testDrinkCheckFFT(){
+    Boolean[] fakeInventory = {false, false, true};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You eat the sugar, but without caffeine, you cannot study.\n You lose!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testDrinkCheckTTF(){
+    Boolean[] fakeInventory = {true, true, false};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "Without sugar, the coffee is too bitter.  You cannot study.\nYou lose!\n".trim() , out.toString().trim());
+  }
 }

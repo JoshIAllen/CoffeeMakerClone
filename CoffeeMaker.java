@@ -169,8 +169,7 @@ public class CoffeeMaker {
       else if (currentInv[0] == false && currentInv[1] == false && currentInv[2]){
            System.out.println("You eat the sugar, but without caffeine, you cannot study.\n You lose!\n");
            alive = false;      
-        }
-   
+      }
       else if (currentInv[0] && currentInv[1] && currentInv[2] == false){
            System.out.println("Without sugar, the coffee is too bitter.  You cannot study.\nYou lose!\n");
            alive = false;   
