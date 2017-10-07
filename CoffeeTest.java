@@ -22,28 +22,28 @@ public class CoffeeTest{
   
 // --------------------------------------------------------------------- Room Tests ---------------------------------------------------------------
   @Test
-  public void testSetFirstItem() {
+  public void testSetFirstString() {
     Room testRoom = new Room("ASDFG");
     testRoom.setFirst("abc123");
     assertEquals("failure, strings are not equal" , "abc123", testRoom.getFirst());
   }
   
   @Test
-  public void testSetSecondItem() {
+  public void testSetSecondString() {
     Room testRoom = new Room("test");
     testRoom.setSecond("abc123");
     assertEquals("failure, strings are not equal" , "abc123", testRoom.getSecond());
   }
   
   @Test
-  public void testSetThirdItem() {
+  public void testSetThirdString() {
     Room testRoom = new Room("test");
     testRoom.setThird("abc123");
     assertEquals("failure, strings are not equal" , "abc123", testRoom.getThird());
   }  
   
   @Test
-  public void testSetFourthItem() {
+  public void testSetFourthString() {
     Room testRoom = new Room("test");
     testRoom.setFourth("abc123");
     assertEquals("failure, strings are not equal" , "abc123", testRoom.getFourth());
@@ -135,30 +135,17 @@ public class CoffeeTest{
 
   }
   
-//  @Test
-//  public void testItemLook(){
-//    Boolean[] checkInvenory = {false, true, false};
-//    Room testRoom = new Room("test");
-//    testRoom.setItem(""); 
-//  }
+  @Test
+  public void testItemLookDouble(){
+    Boolean[] fakeInventory = {true, false, false};
+    Boolean[] inventoryCheck = {true, false, false};
+    Room testRoom = new Room("test");
+    testRoom.setItem("Coffee");
+    assertArrayEquals("FAILURE: Arrays were not equal", CoffeeMaker.itemLook(testRoom, fakeInventory), inventoryCheck);
+  }
   
+  //-------------------------------------------------------------------- End of Item Look---------------------------------------------------------------------------
+  //-------------------------------------------------------------------- Drink Check ------------------------------------------------------------------------------
   
- // @TEST
-  //PUBLIC VOID TESTINTERPRETSTRING(){
-  //  COFFEEMAKER TESTSTRING = NEW COFFEEMAKER("N" || "N");
-  //  TESTSTRING = COFFEEMAKER(TRUE);
-  //  ASSERTEQUALS("INVALID INPUT", TESTSTRING());
-  //}
-
-
-  
-//  @Test
-//  public void testPrintRoom(){
-//    CoffeeMaker mockCoffeeMaker = mock(CoffeeMaker.class);
-//    when (mockCoffeeMaker.printRoom()).thenReturn(1);
-//    int val = printRoom(mockCoffeeMaker, 100);
-//    assertEquals(val, 100);
-    // Attempted Stub test.
-  //}
-  
+ 
 }
