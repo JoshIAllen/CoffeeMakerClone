@@ -110,7 +110,7 @@ public class CoffeeMaker {
       else if (input.equals("D") || input.equals("d")){
           inventoryCheck(inventory);
           System.out.println();
-          alive = drinkCheck(inventory, alive);
+          drinkCheck(inventory);
           System.out.println();
       }
       else{
@@ -152,54 +152,41 @@ public class CoffeeMaker {
  }
  
  
- public static boolean drinkCheck(Boolean[] currentInv, Boolean status){
+ public static void drinkCheck(Boolean[] currentInv){
  
       if (currentInv[0] && currentInv[1] && currentInv[2]){
            System.out.println("You drink the beverage and are ready to study!\nYou win!!\n");
-           ;
-          status = false;
-          return status;
+           alive = false;
       }
       else if (currentInv[0] == false && currentInv[1] && currentInv[2] == false){
            System.out.println("You drink the cream, but without caffeine, you cannot study. \n You lose!\n");
-          status = false;
-          return status;
+           alive = false;
       }
       else if (currentInv[0] && currentInv[1] == false && currentInv[2] == false){
            System.out.println("Without cream, you get an ulcer and cannot study. \n You lose!\n");
-
-          status = false;   
-          return status;
+           alive = false;   
       }
       else if (currentInv[0] == false && currentInv[1] == false && currentInv[2]){
            System.out.println("You eat the sugar, but without caffeine, you cannot study.\n You lose!\n");
-          status = false;      
-          return status;
-      }
+           alive = false;      
+        }
    
       else if (currentInv[0] && currentInv[1] && currentInv[2] == false){
-           System.out.println("Without sugar, the coffee is too bitter.  You cannot study.");
-           System.out.println("You lose!\n");
-           status = false;    
-           return status;
+           System.out.println("Without sugar, the coffee is too bitter.  You cannot study.\nYou lose!\n");
+           alive = false;   
       }
       else if (currentInv[0] == false && currentInv[1] && currentInv[2]){
-           System.out.println("You drink the sweetened cream, but without caffeine, you cannot study.");
-           System.out.println("You lose!\n");
-          status = false;    
-          return status;
+           System.out.println("You drink the sweetened cream, but without caffeine, you cannot study.\nYou lose!\n");
+           alive = false;    
       }
       else if (currentInv[0] && currentInv[1] == false && currentInv[2]){
-           System.out.println("Without cream, you get an ulcer and cannot study.");
-           System.out.println("You lose!\n");
-          status = false;         
-          return status;
+           System.out.println("Without cream, you get an ulcer and cannot study.\nYou lose!\n");
+           alive = false;         
       }
       else{
-          System.out.println("You have no Coffee, Cream or Sugar!");
-          System.out.println("You Lose!!");
-          status = false;
-          return status;}
+          System.out.println("You have no Coffee, Cream or Sugar!\n You Lose!!\n");
+          alive = false;
+      }
  }
  
  
