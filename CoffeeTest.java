@@ -365,4 +365,40 @@ public class CoffeeTest{
     int fakeLocation = 0;
     assertEquals("FAILURE: The system should print out the player's inventory", 400, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
   }
+  
+  @Test
+  public void testInterperetInputItemLook(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "l";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: The system should look for an item", 500, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+  @Test
+  public void testInterperetInputDrinkCheck(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "D";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: The system should call the drink check method", 600, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+    @Test
+  public void testInterperetInputUnkownInput(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "J";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: The system should not recognize unknown input", 000, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+  @Test
+  public void testInterperetInputDoubleInput(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "LL";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: The system should not recognize unknown input", 000, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
 }
