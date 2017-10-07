@@ -74,47 +74,58 @@ public class CoffeeMaker {
       printRoom(house[currentLocation]);
       System.out.println( "INSTRUCTIONS (N,S,L,I,D,H) > \n");
       input = scanner.nextLine();
-      interpretInput(input, house);
+      interpretInput(input, house, currentLocation);
    
 
       }
    }
 
    
- public static void interpretInput(String input, Room[] house){
+ public static int interpretInput(String input, Room[] house, int location){
         if (input.equals("n") || input.equals("N")){
           if (house[currentLocation].checkNorth()){
-           currentLocation += 1;
+           location += 1;
+           currentLocation = location;
+           return 100;
           }
           else {
                  System.out.println("You cannot go North. There is no North door. You did not change rooms.\n");
+                 return 101;
           }
       }
       else if (input.equals("s") || input.equals("S")){
           if (house[currentLocation].checkSouth()){
-           currentLocation -= 1;
+           location -= 1;
+           currentLocation = location;
+           return 200;
           } 
           else {
             System.out.println("You cannot go South. There is no South door. You did not change rooms.\n");
+            return 201;
           }
       }
       else if (input.equals("H") || input.equals("h")){
           printHelp();
+          return 300;
       }
       else if (input.equals("I") || input.equals("i")){
           inventoryCheck(inventory);
+          return 400;
       }
       else if (input.equals("L") || input.equals("l")){
           inventory = itemLook(house[currentLocation], inventory);
+          return 500;
       }
       else if (input.equals("D") || input.equals("d")){
           inventoryCheck(inventory);
           System.out.println();
           drinkCheck(inventory);
           System.out.println();
+          return 600;
       }
       else{
        System.out.println("What?\n");
+       return 000;
       }
  }
 
@@ -128,7 +139,6 @@ public class CoffeeMaker {
           System.out.println(thisRoom.getFourth());
           System.out.println();
       }
-      else{System.out.println();}
  }
  
  

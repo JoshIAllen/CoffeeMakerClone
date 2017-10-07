@@ -255,10 +255,114 @@ public class CoffeeTest{
     CoffeeMaker.inventoryCheck(fakeInventory);
     assertEquals("FAILURE: Wrong message was printed", "YOU HAVE NO COFFEE!\nYOU HAVE NO CREAM!\nYou have some sugar.\n".trim() , out.toString().trim());
   }
+// --------------------------------------------------------------------- End of Inventory Tests-------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------- Print Help-------------------------------------------------------------------------------------------------------------------------
   @Test
   public void testPrintHelp(){
     CoffeeMaker.printHelp();
     assertEquals("FAILURE: Wrong message was printed", "Type N to move north.\nType S to move south.\nType L to look for an item.\nType I to check your inventory.\nType D to drink your coffee.".trim(), out.toString().trim());
   }  
+// -------------------------------------------------------------------------End Print Help ------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------Print Room-----------------------------------------------------------------------------------------------------------------------
+  @Test
+  public void testPrintRoomFull(){
+    Room testRoom = new Room("test");
+    testRoom.setFirst("test complete 1");
+    testRoom.setSecond("test complete 2");
+    testRoom.setThird("test complete 3");
+    testRoom.setFourth("test complete 4");
+    CoffeeMaker.printRoom(testRoom);
+    assertEquals("FAILURE: Wrong message was printed", "test complete 1\ntest complete 2\ntest complete 3\ntest complete 4\n".trim(), out.toString().trim());
+  }  
   
+  @Test
+  public void testPrintRoom3(){
+    Room testRoom = new Room("test");
+    testRoom.setFirst("test complete 1");
+    testRoom.setSecond("test complete 2");
+    testRoom.setThird("test complete 3");
+    CoffeeMaker.printRoom(testRoom);
+    assertEquals("FAILURE: Wrong message was printed", "test complete 1\ntest complete 2\ntest complete 3\n".trim(), out.toString().trim());
+  }
+  
+// --------------------------------------------------------------------- End Print Room --------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------Interpret Input--------------------------------------------------------------------------------------------------
+  @Test
+  public void testInterperetInputNorthAllowed(){
+    Room testRoom1 = new Room("test");
+    testRoom1.setNorth(true);
+    Room testRoom2 = new Room("test");
+    testRoom2.setNorth(true);
+    testRoom2.setSouth(true);
+    Room testRoom3 = new Room("test");
+    testRoom3.setSouth(true);
+    Room[] fakeArray = {testRoom1, testRoom2, testRoom3};
+    String testString = "N";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: Current location not incremented", 100, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+
+  
+  @Test
+  public void testInterperetInputLowerNorthAllowed(){
+    Room testRoom1 = new Room("test");
+    testRoom1.setNorth(true);
+    Room testRoom2 = new Room("test");
+    testRoom2.setNorth(true);
+    testRoom2.setSouth(true);
+    Room[] fakeArray = {testRoom1, testRoom2};
+    String testString = "n";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: Current location not incremented", 100, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+  @Test
+  public void testInterperetInputNorthNotAllowed(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "N";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: Tried to travel North with no North door", 101, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+  @Test
+  public void testInterperetInputSouthAllowed(){
+    Room testRoom1 = new Room("test");
+    Room testRoom2 = new Room("test");
+    testRoom2.setSouth(true);
+    Room[] fakeArray = {testRoom1, testRoom2};
+    String testString = "S";
+    int fakeLocation = 1;
+    assertEquals("FAILURE: Current location not incremented", 200, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+
+
+  @Test
+  public void testInterperetInputSouthNotAllowed(){
+    Room testRoom1 = new Room("test");
+    Room testRoom2 = new Room("test");
+    testRoom1.setSouth(false);
+    Room[] fakeArray = {testRoom1, testRoom2};
+    String testString = "S";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: Tried to travel South with no South door", 201, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+  @Test
+  public void testInterperetInputPrintHelp(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "h";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: The system should have printed out the help commands", 300, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
+  
+  @Test
+  public void testInterperetInputInventoryCheck(){
+    Room testRoom1 = new Room("test");
+    Room[] fakeArray = {testRoom1};
+    String testString = "I";
+    int fakeLocation = 0;
+    assertEquals("FAILURE: The system should print out the player's inventory", 400, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
+  }
 }
