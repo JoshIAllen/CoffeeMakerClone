@@ -180,4 +180,24 @@ public class CoffeeTest{
     CoffeeMaker.drinkCheck(fakeInventory);
     assertEquals("FAILURE: Wrong message was printed", "Without sugar, the coffee is too bitter.  You cannot study.\nYou lose!\n".trim() , out.toString().trim());
   }
+  @Test
+  public void testDrinkCheckFTT(){
+    Boolean[] fakeInventory = {false, true, true};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You drink the sweetened cream, but without caffeine, you cannot study.\nYou lose!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testDrinkCheckTFT(){
+    Boolean[] fakeInventory = {true, false, true};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "Without cream, you get an ulcer and cannot study.\nYou lose!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testDrinkCheckFFF(){
+    Boolean[] fakeInventory = {false, false, false};
+    CoffeeMaker.drinkCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You have no Coffee, Cream or Sugar!\n You Lose!!\n".trim() , out.toString().trim());
+  }
 }
