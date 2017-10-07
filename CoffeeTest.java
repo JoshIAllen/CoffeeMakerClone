@@ -200,4 +200,60 @@ public class CoffeeTest{
     CoffeeMaker.drinkCheck(fakeInventory);
     assertEquals("FAILURE: Wrong message was printed", "You have no Coffee, Cream or Sugar!\n You Lose!!\n".trim() , out.toString().trim());
   }
+  
+// ----------------------------------------------------------------------- End of Drink Check -------------------------------------------------------------------------
+//--------------------------------------------------------------------- Inventory Ccheck Begin -------------------------------------------------------------------------
+  @Test
+  public void testInventoryCheckFFF(){
+    Boolean[] fakeInventory = {false, false, false};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "YOU HAVE NO COFFEE!\nYOU HAVE NO CREAM!\nYOU HAVE NO SUGAR!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testInventoryCheckTFF(){
+    Boolean[] fakeInventory = {true, false, false};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You have a delicious cup of coffee.\nYOU HAVE NO CREAM!\nYOU HAVE NO SUGAR!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testInventoryCheckTTF(){
+    Boolean[] fakeInventory = {true, true, false};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You have a delicious cup of coffee.\nYou have some cream.\nYOU HAVE NO SUGAR!\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testInventoryCheckTTT(){
+    Boolean[] fakeInventory = {true, true, true};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You have a delicious cup of coffee.\nYou have some cream.\nYou have some sugar.\n".trim() , out.toString().trim());
+  }
+  
+  @Test
+  public void testInventoryCheckFTT(){
+    Boolean[] fakeInventory = {false, true, true};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "YOU HAVE NO COFFEE!\nYou have some cream.\nYou have some sugar.\n".trim() , out.toString().trim());
+  }
+  @Test
+  public void testInventoryCheckTFT(){
+    Boolean[] fakeInventory = {true, false, true};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "You have a delicious cup of coffee.\nYOU HAVE NO CREAM!\nYou have some sugar.\n".trim() , out.toString().trim());
+  }
+  @Test
+  public void testInventoryCheckFTF(){
+    Boolean[] fakeInventory = {false, true, false};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "YOU HAVE NO COFFEE!\nYou have some cream.\nYOU HAVE NO SUGAR!\n".trim() , out.toString().trim());
+  }
+  @Test
+  public void testInventoryCheckFFT(){
+    Boolean[] fakeInventory = {false, false, true};
+    CoffeeMaker.inventoryCheck(fakeInventory);
+    assertEquals("FAILURE: Wrong message was printed", "YOU HAVE NO COFFEE!\nYOU HAVE NO CREAM!\nYou have some sugar.\n".trim() , out.toString().trim());
+  }
+  
 }
