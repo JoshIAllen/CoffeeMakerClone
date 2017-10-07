@@ -255,5 +255,10 @@ public class CoffeeTest{
     CoffeeMaker.inventoryCheck(fakeInventory);
     assertEquals("FAILURE: Wrong message was printed", "YOU HAVE NO COFFEE!\nYOU HAVE NO CREAM!\nYou have some sugar.\n".trim() , out.toString().trim());
   }
+  @Test
+  public void testPrintHelp(){
+    CoffeeMaker.printHelp();
+    assertEquals("FAILURE: Wrong message was printed", "Type N to move north.\nType S to move south.\nType L to look for an item.\nType I to check your inventory.\nType D to drink your coffee.".trim(), out.toString().trim());
+  }  
   
 }

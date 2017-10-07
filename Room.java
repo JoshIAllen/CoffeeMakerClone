@@ -2,9 +2,9 @@ public class Room {
 public String roomName;
 public String item = null;
 
-public String firstString = null;
-public String secondString = null;
-public String thirdString = null;
+public String firstString = "";
+public String secondString = "";
+public String thirdString = "";
 public String fourthString = null;
 
 public boolean hasItem = false;
