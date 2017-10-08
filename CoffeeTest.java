@@ -287,6 +287,9 @@ public class CoffeeTest{
   
 // --------------------------------------------------------------------- End Print Room --------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------Interpret Input--------------------------------------------------------------------------------------------------
+// ------------------------------Equivalence Classes(N, S, L, H,  I,  D) (n, s, l, i, h, d) (any other string)-----------------------------------------------------------
+// ---------------------------------------------------------We decided to test (N, n, S, h, I, l, D, J, LL)--------------------------------------------------------------  
+  
   @Test
   public void testInterperetInputNorthAllowed(){
     Room testRoom1 = new Room("test");
@@ -401,4 +404,5 @@ public class CoffeeTest{
     int fakeLocation = 0;
     assertEquals("FAILURE: The system should not recognize unknown input", 000, CoffeeMaker.interpretInput(testString, fakeArray, fakeLocation));
   }
+// ---------------------------------------------------------------- End of Interperet Input Tests ---------------------------------------------------------------
 }
